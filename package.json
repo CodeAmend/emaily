@@ -3,16 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-    "node": "8.2.1",
-    "npm": "5.3.0"
-  },
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeAmend/emaily.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeAmend/emaily/issues"
+  },
+  "homepage": "https://github.com/CodeAmend/emaily#readme",
   "dependencies": {
     "express": "^4.15.4"
   }
