@@ -18,7 +18,15 @@ passport.use(
       // console.log('refresh: ', refreshToken);
       // console.log('profile: ', profile);
       // console.log('done: ', done);
-      new User({ googleID: profile.id }).save();
+      User.findOne({ googleID: profile.id })
+        .then( existingUser => {
+          if (existingUser) {
+            console.log("User exists!!");
+          } else {
+            console.log("New user saved to db");
+            new User({ googleID: profile.id }).save();
+          }
+        })
     }
   )
 );
