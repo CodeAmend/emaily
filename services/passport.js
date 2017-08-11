@@ -11,8 +11,9 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  const user = User.findOne({ id });
-  done(null, user)
+  User.findById(id).then( (user) => {
+    done(null, user)
+  })
 });
 
 passport.use(
@@ -26,10 +27,13 @@ passport.use(
       User.findOne({ googleID: profile.id })
         .then( existingUser => {
           if (existingUser) {
-            console.log("User exists!!");
+            done(null, existingUser);
           } else {
             console.log("New user saved to db");
-            new User({ googleID: profile.id }).save();
+            new User({ googleID: profile.id })
+              .save()
+              .then( user => done(null, user));
+
           }
         })
     }
