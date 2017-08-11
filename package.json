@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -23,5 +26,8 @@
     "mongoose": "^4.11.6",
     "passport": "^0.3.2",
     "passport-google-oauth20": "^1.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
   }
 }
